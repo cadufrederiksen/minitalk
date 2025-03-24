@@ -1,65 +1,66 @@
-# 📡 Minitalk - Comunicação entre Processos em Unix
+# 📡 Minitalk - Interprocess Communication in Unix
 
 ![Minitalk](https://img.shields.io/badge/Language-C-blue) ![Makefile](https://img.shields.io/badge/Tool-Makefile-yellow) ![Norminette](https://img.shields.io/badge/Style-Norminette-green)
 
-O projeto **Minitalk** tem como objetivo explorar os fundamentos da comunicação entre processos no sistema Unix, utilizando sinais como meio de troca de informações. Por meio deste projeto, os estudantes desenvolvem um programa de comunicação simples que utiliza sinais **SIGUSR1** e **SIGUSR2** para enviar mensagens entre dois processos.
+The **Minitalk** project aims to explore the fundamentals of interprocess communication in Unix systems, using signals as a means of exchanging information. Through this project, students develop a simple communication program that uses **SIGUSR1** and **SIGUSR2** signals to send messages between two processes.
 
 ---
 
-## 📋 Objetivo do Projeto
+## 📋 Project Objective
 
-🔹 Desenvolver dois programas:  
-1. **Servidor**: aguarda sinais de entrada e interpreta os dados recebidos.  
-2. **Cliente**: envia mensagens para o servidor por meio de sinais de Unix.  
+🔹 Develop two programs:  
+1. **Server**: waits for incoming signals and interprets the received data.  
+2. **Client**: sends messages to the server using Unix signals.  
 
-🔹 **Compreender a comunicação entre processos** em sistemas Unix.  
-🔹 Trabalhar com **sinais** e entender como utilizá-los para transmitir dados.  
-🔹 Explorar **funções do sistema Unix**, como `kill()` e `signal()`.  
-🔹 Implementar **redireção de entrada/saída** e gerenciar processos de forma eficiente.
-
----
-
-## 📚 Conceitos Principais
-
-- 🔄 **Comunicação entre Processos**: troca de mensagens entre cliente e servidor por sinais.  
-- 📡 **Sinais de Unix**: uso de **SIGUSR1** e **SIGUSR2** para codificar e transmitir mensagens.  
-- 🧵 **Gestão de Sinais**: manipulação de sinais com funções do sistema Unix (`kill()`, `signal` etc.).  
-- 📂 **Redireção de Entrada/Saída**: manipulação de streams para controlar dados de entrada e saída.  
-- ⏱️ **Sincronização**: garantir a correta recepção e decodificação das mensagens enviadas.  
+🔹 **Understand interprocess communication** in Unix systems.  
+🔹 Work with **signals** and learn how to use them to transmit data.  
+🔹 Explore **Unix system functions**, such as `kill()` and `signal()`.  
+🔹 Implement **input/output redirection** and efficiently manage processes.
 
 ---
 
-## ✨ Funcionalidades Implementadas
+## 📚 Main Concepts
 
-### 🔧 Estrutura do Programa
-1. **Servidor**  
-   - Inicia aguardando conexões de clientes.  
-   - Recebe sinais **SIGUSR1** e **SIGUSR2**, decodifica os dados e exibe a mensagem recebida.  
-   - Exibe o **PID** (Process ID) para que o cliente saiba onde enviar os sinais.  
-
-2. **Cliente**  
-   - Envia uma mensagem de texto para o servidor, convertendo cada caractere em uma sequência de sinais.  
-
-### 🛠️ Funcionalidades Técnicas
-- **Codificação de Mensagens**:  
-   - Cada caractere da mensagem é convertido para binário e enviado ao servidor bit a bit utilizando sinais.  
-
-- **Decodificação no Servidor**:  
-   - Os sinais recebidos são interpretados e reconstruídos para exibir a mensagem original.  
-
-- **Gestão de Erros**:  
-   - Validação do PID e do formato da mensagem.  
-   - Tratamento de sinais perdidos ou interrupções.  
+- 🔄 **Interprocess Communication**: exchanging messages between client and server via signals.  
+- 📡 **Unix Signals**: using **SIGUSR1** and **SIGUSR2** to encode and transmit messages.  
+- 🧵 **Signal Management**: handling signals using Unix system functions (`kill()`, `signal()`, etc.).  
+- 📂 **Input/Output Redirection**: managing streams to control data input and output.  
+- ⏱️ **Synchronization**: ensuring proper reception and decoding of sent messages.
 
 ---
 
-## 🛠️ Ferramentas e Padrões
+## ✨ Implemented Features
 
-| Ferramenta/Padrão      | Descrição                                               |
-|-------------------------|-------------------------------------------------------|
-| **GIT**                | Controle de versão para organizar o desenvolvimento do código. |
-| **Makefile**           | Automação da compilação e geração dos executáveis.      |
-| **Norminette**         | Garantia de conformidade com os padrões de estilo da 42. |
+### 🔧 Program Structure
+1. **Server**  
+   - Starts by waiting for client connections.  
+   - Receives **SIGUSR1** and **SIGUSR2** signals, decodes the data, and displays the received message.  
+   - Displays its **PID** (Process ID) so the client knows where to send the signals.  
+
+2. **Client**  
+   - Sends a text message to the server by converting each character into a sequence of signals.
+
+### 🛠️ Technical Features
+- **Message Encoding**:  
+   - Each character of the message is converted to binary and sent to the server bit by bit using signals.
+
+- **Server Decoding**:  
+   - Received signals are interpreted and reconstructed to display the original message.
+
+- **Error Handling**:  
+   - Validates the PID and the message format.  
+   - Handles lost signals or interruptions.
 
 ---
+
+## 🛠️ Tools and Standards
+
+| Tool/Standard         | Description                                                        |
+|-----------------------|--------------------------------------------------------------------|
+| **GIT**               | Version control to organize the development of the code.           |
+| **Makefile**          | Automates compilation and generation of executables.               |
+| **Norminette**        | Ensures compliance with the 42 coding style standards.             |
+
+---
+
 
